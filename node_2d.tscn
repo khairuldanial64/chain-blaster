@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://lfhl8nfowx11"]
+
+[ext_resource type="Texture2D" uid="uid://detr42woux2u6" path="res://graphics/player/Triangle.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://bjgjw544yi86w" path="res://graphics/enemies/Pentagon 2.png" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://64l328k5moc2" path="res://graphics/enemies/Triangle 2.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://bjc2yuqruy8id" path="res://graphics/enemies/Star 2.png" id="4_rj586"]
+[ext_resource type="Shader" uid="uid://pm4pirmbyq80" path="res://scenes/main.gdshader" id="5_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://dua6tjejhiiyu" path="res://graphics/player/01.png" id="6_ir8iy"]
+
+[sub_resource type="Environment" id="Environment_0e48y"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.5
+glow_bloom = 0.3
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqns4"]
+shader = ExtResource("5_4d7sh")
+shader_parameter/space_color = Color(0, 0, 0, 1)
+shader_parameter/star_density = 1.0
+shader_parameter/base_star_size = 0.01399999996648
+shader_parameter/camera_offset = Vector2(0, 0)
+shader_parameter/nebula_color_1 = Color(0, 0.4, 0.8, 0.3)
+shader_parameter/nebula_color_2 = Color(0.6, 0, 0.6, 0.2)
+shader_parameter/nebula_scale = 0.30000001099011997
+shader_parameter/nebula_speed = 0.00999999977648
+
+[node name="Node2D" type="Node2D" unique_id=1889324761]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449376510]
+modulate = Color(0, 0.58431375, 1, 1)
+texture_filter = 1
+position = Vector2(475, 198.00002)
+scale = Vector2(0.05, 0.06)
+texture = ExtResource("1_wtcfe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1870771218]
+environment = SubResource("Environment_0e48y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=619269208]
+modulate = Color(0.8234414, 0.15315676, 0.49918425, 1)
+position = Vector2(455, 163)
+rotation = -0.64751714
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_kdubu")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1196494895]
+modulate = Color(0.8234414, 0.15315676, 0.49918425, 1)
+position = Vector2(424, 88.999985)
+rotation = -0.44680429
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_kdubu")
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=512846964]
+modulate = Color(0.8234414, 0.15315676, 0.49918425, 1)
+position = Vector2(435, 110.99997)
+rotation = -0.44680429
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_kdubu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=125296598]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(490.00003, 158.00003)
+rotation = -2.7419124
+scale = Vector2(0.03, 0.042)
+texture = ExtResource("3_d21ai")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=563852132]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(486, 132.00002)
+rotation = -2.7419124
+scale = Vector2(0.03, 0.042)
+texture = ExtResource("3_d21ai")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1359466551]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(515, 85.99999)
+rotation = -3.2899456
+scale = Vector2(0.01, 0.014)
+texture = ExtResource("3_d21ai")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=575102855]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(513, 97.99999)
+rotation = -2.9408798
+scale = Vector2(0.01, 0.014)
+texture = ExtResource("3_d21ai")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=642722330]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+light_mask = 8
+visibility_layer = 6
+y_sort_enabled = true
+position = Vector2(452, 134)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_rj586")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1294816104]
+texture_filter = 1
+position = Vector2(474.5, 64.5)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-112, -3.8146973e-06, -40.000008, -40, -1.7166138e-05, -112, 39.999977, -40, 112, 0, 39.999985, 40, -1.7166138e-05, 112.00001, -40.000008, 40)
+uv = PackedVector2Array(-79.99999, -16.000002, -55.999992, -40, -32, -64, -8, -40, 16, -16, -8, 7.999998, -32, 32, -56, 7.999999)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=946199656]
+position = Vector2(474.5, 64.5)
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(-112, 0, 112, 0)
+width = 5.0
+default_color = Color(1, 1, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1763218835]
+position = Vector2(474.5, 64.5)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(-112, 0, 112, 0)
+width = 5.0
+default_color = Color(0, 1, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Bg" type="CanvasLayer" parent="." unique_id=1127128383]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Bg" unique_id=11122077]
+z_as_relative = false
+material = SubResource("ShaderMaterial_hqns4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0073112957, 0.0036222744, 0.052933156, 1)
+
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=1487994137]
+light_mask = 4
+visibility_layer = 25
+texture_filter = 1
+position = Vector2(475, 178)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_ir8iy")
+
+[node name="Sprite2D12" type="Sprite2D" parent="." unique_id=515918116]
+light_mask = 4
+visibility_layer = 25
+texture_filter = 1
+position = Vector2(475.00003, 152)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_ir8iy")
+
+[node name="Sprite2D14" type="Sprite2D" parent="." unique_id=846788766]
+light_mask = 4
+visibility_layer = 25
+texture_filter = 1
+position = Vector2(475.00003, 128)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_ir8iy")

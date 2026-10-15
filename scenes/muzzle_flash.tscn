@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c82rtwti8ph52"]
+
+[ext_resource type="Script" uid="uid://dns7xha8n1iob" path="res://scripts/muzzle_flash.gd" id="1_r2kf7"]
+
+[node name="MuzzleFlash" type="CPUParticles2D" unique_id=456187124]
+script = ExtResource("1_r2kf7")

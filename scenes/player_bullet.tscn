@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dk1n27asl6cvi"]
+
+[ext_resource type="Script" uid="uid://ipdqqqr3iwxq" path="res://scripts/player_bullet.gd" id="1_46jqs"]
+[ext_resource type="Texture2D" uid="uid://dua6tjejhiiyu" path="res://graphics/player/01.png" id="2_46jqs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1lj4"]
+radius = 7.777778
+height = 15.555556
+
+[node name="PlayerBullet" type="Area2D" unique_id=1119765476]
+light_mask = 4
+visibility_layer = 40
+collision_layer = 4
+collision_mask = 56
+script = ExtResource("1_46jqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=632808067]
+light_mask = 4
+visibility_layer = 25
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_46jqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=786449190]
+scale = Vector2(0.9, 0.9)
+shape = SubResource("CapsuleShape2D_b1lj4")

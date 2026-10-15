@@ -1,0 +1,903 @@
+[gd_scene format=3 uid="uid://sjohnpyw7843"]
+
+[ext_resource type="FontFile" uid="uid://kaby04x8dcxc" path="res://graphics/font/monogram-extended-italic.ttf" id="1_6jsh8"]
+[ext_resource type="Script" uid="uid://cb8tky3yygn1l" path="res://scripts/title_scene.gd" id="1_faptf"]
+[ext_resource type="PackedScene" uid="uid://dkdsrevexn0t5" path="res://scenes/asteroid.tscn" id="2_bq8jb"]
+[ext_resource type="Shader" uid="uid://dbsfcqajn6cum" path="res://scenes/title_scene.gdshader" id="2_l8sac"]
+[ext_resource type="Texture2D" uid="uid://detr42woux2u6" path="res://graphics/player/Triangle.png" id="3_bq8jb"]
+[ext_resource type="Texture2D" uid="uid://bjc2yuqruy8id" path="res://graphics/enemies/Star 2.png" id="4_l5n7b"]
+[ext_resource type="Texture2D" uid="uid://64l328k5moc2" path="res://graphics/enemies/Triangle 2.png" id="5_s8xmt"]
+[ext_resource type="FontFile" uid="uid://ddl6eb1l1kgrf" path="res://graphics/font/ThickPixels.ttf" id="8_1ot34"]
+[ext_resource type="Texture2D" uid="uid://8tu3oewkcxpq" path="res://graphics/title/button_rectangle_depth_line.png" id="9_ofksa"]
+[ext_resource type="FontFile" uid="uid://djpax3c5hwfef" path="res://graphics/font/monogram-extended.ttf" id="10_1ot34"]
+[ext_resource type="FontFile" uid="uid://bkk757s6tvasf" path="res://graphics/font/LowIndustrial.ttf" id="10_qlmyv"]
+[ext_resource type="Texture2D" uid="uid://ccgse5i42cpgx" path="res://graphics/title/kb_dark_all.png" id="11_lqobm"]
+[ext_resource type="Texture2D" uid="uid://bst7q8vuntg6l" path="res://graphics/title/pointer_b_shaded.png" id="12_bre4b"]
+[ext_resource type="AudioStream" uid="uid://djgali3l1xtp8" path="res://audio/grand_piano_positive_long.wav" id="13_bre4b"]
+[ext_resource type="AudioStream" uid="uid://b1irer5f5rkoh" path="res://audio/Retro Swooosh 16.wav" id="14_u3gtk"]
+[ext_resource type="AudioStream" uid="uid://rgk4kgev3ucn" path="res://audio/sci_fi_select_big.wav" id="15_u3gtk"]
+[ext_resource type="AudioStream" uid="uid://yxfen2k2ng68" path="res://audio/blossom.wav" id="16_xolyv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqmmt"]
+
+[sub_resource type="Animation" id="Animation_dgqeb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8q8op"]
+resource_name = "spin"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8xmt"]
+_data = {
+&"RESET": SubResource("Animation_dgqeb"),
+&"spin": SubResource("Animation_8q8op")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1lj4"]
+shader = ExtResource("2_l8sac")
+shader_parameter/blur_amount = 1.814000086165
+shader_parameter/brightness = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rdyk"]
+texture = ExtResource("9_ofksa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqobm"]
+texture = ExtResource("9_ofksa")
+modulate_color = Color(0.12591079, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ot34"]
+texture = ExtResource("9_ofksa")
+modulate_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xolyv"]
+texture = ExtResource("9_ofksa")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+modulate_color = Color(0.22959325, 0.22959325, 0.22959322, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e72i"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_1ot34"]
+resource_name = "Entrance"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(-490, -18), Vector2(0, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1.2),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(-720, 123.5), Vector2(0, 123.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.25, 1.6333333, 2),
+"transitions": PackedFloat32Array(1, 2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lqobm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-490, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-720, 123.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ppm8"]
+_data = {
+&"Entrance": SubResource("Animation_1ot34"),
+&"RESET": SubResource("Animation_lqobm")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ppm8"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 0.10980392)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ppm8"]
+texture = ExtResource("11_lqobm")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+8:20/0 = 0
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+3:21/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+7:21/0 = 0
+8:21/0 = 0
+9:21/0 = 0
+10:21/0 = 0
+11:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+3:22/0 = 0
+8:22/0 = 0
+9:22/0 = 0
+10:22/0 = 0
+11:22/0 = 0
+0:23/0 = 0
+1:23/0 = 0
+2:23/0 = 0
+3:23/0 = 0
+8:23/0 = 0
+9:23/0 = 0
+10:23/0 = 0
+11:23/0 = 0
+0:24/0 = 0
+1:24/0 = 0
+2:24/0 = 0
+3:24/0 = 0
+8:24/0 = 0
+9:24/0 = 0
+10:24/0 = 0
+11:24/0 = 0
+0:25/0 = 0
+1:25/0 = 0
+2:25/0 = 0
+3:25/0 = 0
+8:25/0 = 0
+9:25/0 = 0
+10:25/0 = 0
+11:25/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xrivr"]
+sources/0 = SubResource("TileSetAtlasSource_6ppm8")
+
+[sub_resource type="Environment" id="Environment_6ppm8"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.71
+glow_bloom = 0.3
+glow_blend_mode = 0
+
+[node name="TitleScene" type="Control" unique_id=800759586]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_faptf")
+background_asteroid_scene = ExtResource("2_bq8jb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" type="ColorRect" parent="." unique_id=1408281678]
+material = SubResource("ShaderMaterial_gqmmt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.007843138, 0.003921569, 0.050980393, 1)
+
+[node name="BackgroundSim" type="Node2D" parent="." unique_id=1927964145]
+
+[node name="Ship" type="Sprite2D" parent="BackgroundSim" unique_id=1642968954]
+modulate = Color(0, 0.58431375, 1, 1)
+texture_filter = 1
+position = Vector2(651.8439, 361.21274)
+rotation = -0.44854963
+scale = Vector2(0.2, 0.24)
+texture = ExtResource("3_bq8jb")
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundSim" unique_id=1751779566]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+light_mask = 8
+visibility_layer = 6
+y_sort_enabled = true
+position = Vector2(999, 133.00003)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_l5n7b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundSim" unique_id=1556043675]
+libraries/ = SubResource("AnimationLibrary_s8xmt")
+autoplay = &"spin"
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackgroundSim" unique_id=1755006923]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(885.2405, 534.0001)
+rotation = -0.44854963
+scale = Vector2(0.2, 0.24)
+texture = ExtResource("5_s8xmt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BackgroundSim" unique_id=84544599]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(622.2405, 639)
+rotation = -0.44854963
+scale = Vector2(0.2, 0.24)
+texture = ExtResource("5_s8xmt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BackgroundSim" unique_id=582788182]
+modulate = Color(0.89411765, 0, 0.15294118, 1)
+position = Vector2(802.24054, 697)
+rotation = -0.44854963
+scale = Vector2(0.2, 0.24)
+texture = ExtResource("5_s8xmt")
+
+[node name="BlurOverlay" type="Panel" parent="." unique_id=973380423]
+material = SubResource("ShaderMaterial_b1lj4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title1" type="RichTextLabel" parent="." unique_id=1944186466]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -342.0
+offset_right = -2.0
+offset_bottom = -138.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_6jsh8")
+theme_override_font_sizes/normal_font_size = 250
+bbcode_enabled = true
+text = "CHAIN"
+
+[node name="Title2" type="RichTextLabel" parent="." unique_id=279659401]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -200.5
+offset_right = 2.0
+offset_bottom = 24.5
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_6jsh8")
+theme_override_font_sizes/normal_font_size = 250
+bbcode_enabled = true
+text = "BLASTER"
+
+[node name="PlayButton" type="Button" parent="." unique_id=1498653009]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -442.32397
+offset_top = 53.0
+offset_right = -210.03015
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_1ot34")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxTexture_7rdyk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lqobm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ot34")
+text = "PLAY"
+
+[node name="BossButton" type="Button" parent="." unique_id=1380023077]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -421.32397
+offset_top = 144.0
+offset_right = -227.46729
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1967604, 1.1967604)
+pivot_offset = Vector2(100, 35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_1ot34")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_7rdyk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lqobm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1ot34")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xolyv")
+text = "The Vault"
+
+[node name="PlaytesterButton" type="Button" parent="." unique_id=1218109078]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = 244.0
+offset_right = -187.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(100, 35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_qlmyv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_3e72i")
+text = "Playtester mode"
+
+[node name="ResetScoreButton" type="Button" parent="." unique_id=1051916493]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = 244.0
+offset_right = 11.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(100, 35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_qlmyv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_3e72i")
+text = "Reset High Score"
+
+[node name="HighscoreLabel" type="Label" parent="." unique_id=1488788680]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -5.0
+offset_right = 386.0
+offset_bottom = 26.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_1ot34")
+theme_override_font_sizes/font_size = 39
+text = "High Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1775783883]
+libraries/ = SubResource("AnimationLibrary_6ppm8")
+autoplay = &"Entrance"
+
+[node name="Panel" type="Panel" parent="." unique_id=1764341982]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -478.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ppm8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Panel" unique_id=446968031]
+texture_filter = 1
+position = Vector2(109, -18)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 2, 0, 0, 0, 1, 0, 22, 0, 0, 0, 255, 255, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 4, 0, 0, 0, 1, 0, 18, 0, 0, 0, 255, 255, 5, 0, 0, 0, 1, 0, 3, 0, 0, 0, 255, 255, 6, 0, 0, 0, 9, 0, 8, 0, 0, 0)
+tile_set = SubResource("TileSet_xrivr")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1511951352]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -381.0
+offset_top = 13.0
+offset_right = -83.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_1ot34")
+theme_override_font_sizes/font_size = 50
+text = "How to play?"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=166347801]
+texture_filter = 1
+position = Vector2(86, 341)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_bre4b")
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1614741337]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 86.0
+offset_right = 290.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("10_1ot34")
+theme_override_font_sizes/font_size = 25
+text = "Thrust forward
+
+Drift left
+
+Reverse
+
+Drift right
+
+Boost forward
+
+Aim & LMB to shoot
+
+"
+
+[node name="Label3" type="RichTextLabel" parent="Panel" unique_id=1432930719]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 372.0
+offset_right = 453.0
+offset_bottom = 603.0
+theme_override_fonts/normal_font = ExtResource("10_1ot34")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "OBJECTIVE
+- Survive and obtain the highest score possible by shooting enemies. 
+
+GAMEPLAY
+- Kill 3 enemies in a row without taking damage to start a combo-chain multiplier.
+- Taking damage, or letting the timer run out, breaks your combo back to normal.
+- You have 4 lives, killing the green enemy gives you 1 life back.
+- Avoid the asteroids!
+- Boosting grants immunity.
+- Shoot the power-up bubbles to obtain its powers!
+
+Good luck :)
+
+"
+
+[node name="Label4" type="RichTextLabel" parent="Panel" unique_id=1852173516]
+visible = false
+layout_mode = 0
+offset_top = 401.0
+offset_right = 441.0
+offset_bottom = 589.0
+theme_override_fonts/normal_font = ExtResource("10_1ot34")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Survive and obtain the highest score possible by shooting enemies.
+
+
+Kill 3 enemies in a row without taking damage to start a combo-chain multiplier.
+
+"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1828439145]
+environment = SubResource("Environment_6ppm8")
+
+[node name="PlaySound" type="AudioStreamPlayer2D" parent="." unique_id=1476074074]
+stream = ExtResource("13_bre4b")
+
+[node name="TitlePushSound" type="AudioStreamPlayer2D" parent="." unique_id=1776290401]
+stream = ExtResource("14_u3gtk")
+
+[node name="ReadySound" type="AudioStreamPlayer2D" parent="." unique_id=1219368374]
+stream = ExtResource("15_u3gtk")
+volume_db = -15.91
+
+[node name="Timer" type="Timer" parent="." unique_id=340633243]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=356987927]
+wait_time = 1.25
+one_shot = true
+autostart = true
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1935457595]
+stream = ExtResource("16_xolyv")
+volume_db = -13.582
+autoplay = true
+
+[node name="PlaytesterConfirmDialog" type="ConfirmationDialog" parent="." unique_id=2008821347]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1539835965]
+
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="ResetScoreButton" to="." method="_on_reset_score_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

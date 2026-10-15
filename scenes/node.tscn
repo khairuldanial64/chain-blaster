@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cejkw36exkyim"]
+
+[ext_resource type="Script" uid="uid://d2i76imbsymm0" path="res://scripts/wave_text_effect.gd" id="1_6r00q"]
+
+[node name="Node" type="Node" unique_id=1977106527]
+script = ExtResource("1_6r00q")
