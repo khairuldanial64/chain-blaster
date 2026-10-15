@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cni5wrdcldq7l"]
-
-[ext_resource type="Script" uid="uid://dgsp4xio2acly" path="res://scripts/combo_manager.gd" id="1_ilspo"]
-
-[node name="ComboManager" type="Node" unique_id=363143944]
-script = ExtResource("1_ilspo")
